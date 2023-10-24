@@ -1,14 +1,15 @@
 # Image with the requirements to build Amiberry for armhf (32-bit)
 # Author: Dimitris Panokostas
-# Version: 1.0
-# Date: 2022-06-04
 #
-# Usage: docker run --rm -it -v <path-to-amiberry-sources>:/build amiberry-docker-armhf:latest
+# Usage: docker run --rm -it -v <path-to-amiberry-sources>:/build amiberry-debian-armhf:latest
 #
-FROM debian:latest
+
+# If no arg is provided, default to latest
+ARG debian_release=latest
+FROM debian:${debian_release}
 
 RUN dpkg --add-architecture armhf
-RUN apt-get update && apt-get install -y autoconf git build-essential gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-arm-linux-gnueabihf libsdl2-dev:armhf libsdl2-ttf-dev:armhf libsdl2-image-dev:armhf libpng-dev:armhf libflac-dev:armhf libmpg123-dev:armhf libmpeg2-4-dev:armhf libserialport-dev:armhf pkgconf:armhf
+RUN apt-get update && apt dist-upgrade -fuy && apt-get install -y autoconf git build-essential gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-arm-linux-gnueabihf libsdl2-dev:armhf libsdl2-ttf-dev:armhf libsdl2-image-dev:armhf libpng-dev:armhf libflac-dev:armhf libmpg123-dev:armhf libmpeg2-4-dev:armhf libserialport-dev:armhf pkgconf:armhf
 
 WORKDIR /build
 
