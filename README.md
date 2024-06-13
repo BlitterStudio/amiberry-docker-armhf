@@ -5,9 +5,9 @@ The image is based on Debian:latest and includes all Amiberry dependencies (e.g.
 
 No Dispmanx is supported in this image, only 32-bit SDL2 versions.
 
-The full image is available on DockerHub: <https://hub.docker.com/repository/docker/midwan/amiberry-docker-armhf>
+The full image is available on DockerHub: <https://hub.docker.com/repository/docker/midwan/amiberry-debian-armhf>
 
 ## Usage
-`docker run --rm -it -v <dir-you-cloned-amiberry-into>:/build midwan/amiberry-docker-armhf:latest`
+`docker run --rm -it -v <dir-you-cloned-amiberry-into>:/build midwan/amiberry-debian-armhf:latest`
 
 Then you can proceed to compile Amiberry as usual, e.g. `make -j8 PLATFORM=rpi4-sdl2`
