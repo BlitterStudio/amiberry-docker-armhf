@@ -8,4 +8,4 @@ The full image is available on DockerHub: <https://hub.docker.com/repository/doc
 ## Usage
 `docker run --rm -it -v <dir-you-cloned-amiberry-into>:/build midwan/amiberry-debian-armhf:latest`
 
-Then you can proceed to compile Amiberry as usual, e.g. `make -j8 PLATFORM=rpi4-sdl2`
+Then you can proceed to compile Amiberry with the relevant toolchain, e.g. `cmake -DCMAKE_TOOLCHAIN_FILE=cmake/Toolchain-arm-linux-gnueabihf.cmake -B build && cmake --build build`
