@@ -10,35 +10,39 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-
   push_to_registry:
     name: Build and push Docker images to Docker Hub
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        debian_release: [bullseye, bookworm]
+        include:
+          - debian_release: bookworm
+            tags: midwan/amiberry-debian-armhf:bookworm,midwan/amiberry-debian-armhf:latest
+          - debian_release: bullseye
+            tags: midwan/amiberry-debian-armhf:bullseye
 
     steps:
     - name: Check out the repo
       uses: actions/checkout@v4
-      
+
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build and push Bullseye Docker image
-      uses: docker/build-push-action@v6
-      with:
-        build-args: "debian_release=bullseye"
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: "midwan/amiberry-debian-armhf:bullseye"
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
-    - name: Build and push Bookworm Docker image
+    - name: Build and push Docker image
       uses: docker/build-push-action@v6
       with:
-        build-args: "debian_release=bookworm"
+        build-args: debian_release=${{ matrix.debian_release }}
         context: .
         file: ./Dockerfile
         push: true
-        tags: "midwan/amiberry-debian-armhf:bookworm, midwan/amiberry-debian-armhf:latest"
+        tags: ${{ matrix.tags }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
