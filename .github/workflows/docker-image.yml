@@ -16,10 +16,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        debian_release: [bullseye, bookworm]
+        debian_release: [bullseye, bookworm, trixie]
         include:
+          - deban_release: trixie
+            tags: midwan/amiberry-debian-armhf:trixie,midwan/amiberry-debian-armhf:latest
           - debian_release: bookworm
-            tags: midwan/amiberry-debian-armhf:bookworm,midwan/amiberry-debian-armhf:latest
+            tags: midwan/amiberry-debian-armhf:bookworm
           - debian_release: bullseye
             tags: midwan/amiberry-debian-armhf:bullseye
 
