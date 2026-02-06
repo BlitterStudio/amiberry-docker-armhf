@@ -15,7 +15,7 @@ RUN dpkg --add-architecture armhf \
     && apt-get update \
     && apt-get dist-upgrade -fuy \
     && apt-get install -y --no-install-recommends \
-        autoconf git build-essential cmake ninja-build \
+        autoconf git build-essential cmake file ninja-build \
         gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-arm-linux-gnueabihf \
         libsdl2-dev:armhf libsdl2-ttf-dev:armhf libsdl2-image-dev:armhf \
         libpng-dev:armhf libflac-dev:armhf libmpg123-dev:armhf libmpeg2-4-dev:armhf \
