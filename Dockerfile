@@ -18,6 +18,7 @@ RUN dpkg --add-architecture armhf \
         autoconf git build-essential cmake file ninja-build \
         gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-arm-linux-gnueabihf \
         libsdl2-dev:armhf libsdl2-ttf-dev:armhf libsdl2-image-dev:armhf \
+        libsdl3-dev:armhf libsdl3-image-dev:armhf \
         libpng-dev:armhf libflac-dev:armhf libmpg123-dev:armhf libmpeg2-4-dev:armhf \
         libserialport-dev:armhf libportmidi-dev:armhf libenet-dev:armhf \
         pkgconf:armhf libpcap-dev:armhf libzstd-dev:armhf \
