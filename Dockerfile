@@ -30,6 +30,7 @@ RUN dpkg --add-architecture armhf \
         libpng-dev:armhf libflac-dev:armhf libmpg123-dev:armhf libmpeg2-4-dev:armhf \
         libserialport-dev:armhf libportmidi-dev:armhf libenet-dev:armhf \
         libpcap-dev:armhf libzstd-dev:armhf \
+        libcurl4-openssl-dev:armhf nlohmann-json3-dev:armhf \
     && if ! apt-get install -y --no-install-recommends libsdl3-dev:armhf libsdl3-image-dev:armhf; then \
         sdl3_build_deps='libasound2-dev:armhf libdbus-1-dev:armhf libdrm-dev:armhf libegl1-mesa-dev:armhf libgbm-dev:armhf libgl1-mesa-dev:armhf libgles2-mesa-dev:armhf libglib2.0-dev:armhf libibus-1.0-dev:armhf libjpeg62-turbo-dev:armhf libpulse-dev:armhf libsamplerate0-dev:armhf libsndio-dev:armhf libtiff-dev:armhf libudev-dev:armhf libwayland-dev:armhf libwebp-dev:armhf libx11-dev:armhf libxcursor-dev:armhf libxext-dev:armhf libxfixes-dev:armhf libxi-dev:armhf libxinerama-dev:armhf libxkbcommon-dev:armhf libxrandr-dev:armhf libxrender-dev:armhf libxss-dev:armhf libxt-dev:armhf libxv-dev:armhf libxxf86vm-dev:armhf'; \
         for optional_pkg in libdecor-0-dev:armhf; do \
