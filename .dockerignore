@@ -1,0 +1,21 @@
+# VCS / GitHub metadata — not part of any build
+.git
+.gitignore
+.github
+.dockerignore
+
+# Repo docs / licensing — not COPY'd into the image
+*.md
+LICENSE
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode
+.idea
+
+# Local artifacts
+*.log
+*.bak

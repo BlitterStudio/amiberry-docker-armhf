@@ -16,9 +16,11 @@ ARG sdl3_ref
 ARG sdl3_image_repo
 ARG sdl3_image_ref
 
-LABEL maintainer="Dimitris Panokostas <midwan@gmail.com>"
-LABEL org.opencontainers.image.source="https://github.com/midwan/amiberry-docker-armhf"
+LABEL org.opencontainers.image.title="Amiberry build environment (Debian armhf)"
 LABEL org.opencontainers.image.description="Build environment for Amiberry armhf (32-bit) on Debian"
+LABEL org.opencontainers.image.authors="Dimitris Panokostas <midwan@gmail.com>"
+LABEL org.opencontainers.image.source="https://github.com/BlitterStudio/amiberry-docker-armhf"
+LABEL org.opencontainers.image.licenses="GPL-3.0"
 
 RUN dpkg --add-architecture armhf \
     && apt-get update \

@@ -5,7 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: "docker" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "docker" # base image versions in Dockerfile
+    directory: "/"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "github-actions" # actions/checkout, docker/build-push-action, etc.
+    directory: "/"
     schedule:
       interval: "weekly"
