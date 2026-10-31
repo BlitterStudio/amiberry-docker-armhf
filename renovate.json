@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["custom.regex"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "SDL3 source build (used when the Debian release has no SDL3 packages)",
+      "managerFilePatterns": ["/^Dockerfile$/"],
+      "matchStrings": ["ARG sdl3_ref=release-(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "libsdl-org/SDL",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^release-(?<version>\\d+\\.\\d+\\.\\d+)$"
+    },
+    {
+      "customType": "regex",
+      "description": "SDL3_image source build (used when the Debian release has no SDL3 packages)",
+      "managerFilePatterns": ["/^Dockerfile$/"],
+      "matchStrings": ["ARG sdl3_image_ref=release-(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "depNameTemplate": "libsdl-org/SDL_image",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^release-(?<version>\\d+\\.\\d+\\.\\d+)$"
+    }
+  ]
+}
