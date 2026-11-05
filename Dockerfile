@@ -6,7 +6,7 @@
 
 ARG debian_release=latest
 ARG sdl3_repo=https://github.com/libsdl-org/SDL.git
-ARG sdl3_ref=release-3.4.18
+ARG sdl3_ref=release-3.4.20
 ARG sdl3_image_repo=https://github.com/libsdl-org/SDL_image.git
 ARG sdl3_image_ref=release-3.4.8
 FROM debian:${debian_release}
